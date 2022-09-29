@@ -1,0 +1,15 @@
+.currency {
+    font-family: Verdana;
+    font-size: 1rem;
+    width: 100vw;
+    height: auto;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    &__form {
+        margin: 3rem 0;
+        width: 700px;
+    }
+}
