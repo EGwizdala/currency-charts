@@ -6,7 +6,7 @@ import {randomColor} from "../../../helpers/randomColor";
 import { StoreContext } from '../../../store/StoreProvider';
 import { ContextInterface } from '../../../interfaces/interfaces';
 import { SelectField, OptionsType } from "../../molecules/SelectField/SelectField";
-import { TABLE_TYPE, TOP_COUNT} from '../../../data/constants';
+import { TABLE_TYPE, TOP_COUNT, CURRENCY} from '../../../data/constants';
 
 interface CurrencySelectInterface {
   currencyCodes: OptionsType[],
@@ -21,17 +21,19 @@ const CurrencySelect = ({ currencyCodes }: CurrencySelectInterface) => {
   const { setChartsData, selectedCurrencyCodes, setSelectedCurrencyCodes, chartsModel,  setChartsSingleData, selectedCurrency, setSelectedCurrency } = useContext(StoreContext) as ContextInterface;
 
   const currenciesHandler =  async (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value;
+    let value = e.target.value;
     setIsError(false);
     setIsLoading(true);
-    
+    if (value === "default") {
+      value = CURRENCY;
+    };
     try {
       const {data} = await request.get(`/${TABLE_TYPE}/${value}/last/${TOP_COUNT}/?format=json`, {
         headers: {
           Accept: 'application/json',
         },
       });
-
+      
       data.color = randomColor();
       setIsError(false);
       setSelectedCurrency(value);
@@ -43,6 +45,8 @@ const CurrencySelect = ({ currencyCodes }: CurrencySelectInterface) => {
       setIsLoading(false);
     }
   };
+
+  
   
   const selectedCurrenciesDisplay = chartsModel === "single" ?
     <li className={style('list-element')}>{selectedCurrency}</li>
