@@ -10,7 +10,7 @@ his project was bootstrapped with [Create React App](https://github.com/facebook
 Project is created with:
 * React version: 18.2.0.
 * Typescript: 4.8.2.
-* Axios: .0.27.2.
+* Axios: 0.27.2.
 * Sass: 1.54.9.
 * Bem-css-modules: 1.4.3,
      
@@ -26,5 +26,4 @@ In the project directory, you can run:
 
 ```
 $ npm start
-
 ```
