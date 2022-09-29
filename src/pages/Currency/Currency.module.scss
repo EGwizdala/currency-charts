@@ -10,6 +10,11 @@
     flex-direction: column;
     &__form {
         margin: 3rem 0;
-        width: 700px;
+        max-width: 700px;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: column;
     }
 }

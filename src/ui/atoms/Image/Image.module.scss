@@ -1,5 +1,12 @@
-.image {
+.image-container {
     background-color: bisque;
-    width: 700px;
-    height: 250px;
+    max-width: 700px;
+    max-height: 250px;
+    @media (max-width: 1200px) {
+        margin: 0 30px;
+    }
+    &__image {
+        width: 100%;
+        height: auto;
+    }
 }

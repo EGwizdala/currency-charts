@@ -10,7 +10,12 @@ const style = bemCssModules(ImageStyles);
 
 const Image = ({imageSrc, imageAlt }: ImageType) => {
 
-    return <img className={style()} src={imageSrc} alt={imageAlt} />
+    return(
+    <div className={style()}>
+        <img className={style('image')} src={imageSrc} alt={imageAlt} />
+    </div>
+    
+)
 }
 
 export default Image
